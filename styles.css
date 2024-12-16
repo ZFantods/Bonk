@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -6,50 +12,94 @@ body {
 }
 
 .bonk-wrapper, .char{
-    position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
 }
 
 .part-body {
-    display: block;
+    position: absolute;
+    right: 60%;
     transform: scaleX(-1);
 }
 
 .part-bat {
     position: absolute;
-    bottom: 80px;
-    left: 85%;
-    transform-origin: top left; 
-    animation: bat-rotate 1s infinite alternate;
+    top: 55%;
+    left: 38%;
+    width: 25%; 
+    height: auto;
+    transform-origin: bottom left; 
+    transform: rotate(-25deg); 
+    animation: bat-rotate 1s infinite alternate; 
 }
 
 @keyframes bat-rotate {
     50% {
-        transform: rotate(-100deg); 
+        transform: rotate(-75deg); 
     }
     100% {
         transform: rotate(-25deg); 
     }
 }
 
-.char-2 {
+.part-body-2 {
+    top: 38%;
+    width: 250px;
+    height: auto;
     position: absolute;
-    top: 65%;
-    left: 165% ; /* Centraliza horizontalmente em relação ao char-1 */
-    transform: translateX(-50%); /* Centraliza corretamente */
+    right: 28% ; 
+    transform: translateX(-50%); 
     animation: none; 
     animation: bonks-move 4s linear infinite alternate;
 }
 
 
 
-.captions {
+.caption {
     position: absolute;
-    top: 10%;
-    left: 80%;
+    top: 35%;
+    left: 65%;
     transform: translate(-50%, -50%);
-    font-size: 24px;
+    font-size: 20px;
     color: #fff;
     font-weight: bold;
     text-shadow: 2px 2px #000;
+    opacity: 0; 
+    animation: move-opacity 6s ease-in-out infinite; 
+}
+
+@keyframes move-opacity {
+    0% {
+        top: 28%;
+        left: 50%;
+        opacity: 0; 
+    }
+    25% {
+        top: 28%;
+        left: 60%;
+        opacity: 1; 
+    }
+    50% {
+        top: 20%;
+        left: 60%;
+        opacity: 0.7;
+    }
+    75% {
+        top: 18%;
+        left: 60%;
+        opacity: 1;
+    }
+    100% {
+        top: 28%;
+        left: 50%;
+        opacity: 0; 
+    }
+}
+
+.control {
+    display: block;
+    position: absolute;
+    bottom: 30%;
+    top: 80%;
+    left: 45%;
 }
